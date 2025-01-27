@@ -1,0 +1,9 @@
+<h1>table edit</h1>
+<a href="/table_view">Table View</a>
+
+
+<form method="POST" action="/table_update/{{item_information.0}}">
+    <input type="text" name="name" value="{{ item_information.1 }}">
+    <input type="text" name="price" value="{{ item_information.2 }}">
+    <button type="submit">Send</button>
+</form>     

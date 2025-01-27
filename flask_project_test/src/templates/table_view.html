@@ -1,0 +1,54 @@
+<h1>table view</h1>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %} 
+<div role="alert">
+    {{message}}
+</div>    
+{%endfor%}
+{%endif%}
+{%endwith%}
+<div>
+    <form method="POST" action="/addItem">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" name="name" placeholder="name">
+                        <input type="text" name="lastname" >
+                        <input type="text" name="email">
+                        <input type="text" name="password">
+                        <button type="submit">Send</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<table>
+    <tbody>
+        
+        {% for item_information in itemInformation %}
+        <tr>
+            <td>
+                {{item_information.1}}
+            </td>
+            <td>
+                {{item_information.2}}
+            </td>   
+            <td>
+                <a href="/table_edit/{{item_information.0}}">Table Edit</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
